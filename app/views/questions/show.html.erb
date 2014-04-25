@@ -10,9 +10,7 @@
   <div class="question-info">
     <span class="user-name"><%= @question.user.username %></span> asked <%= time_ago_in_words(@question.created_at) %> ago
   </div>
-</div>
-
-<div class="question-comments col-md-12">
+  <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
   <div class='comment-form'>
     <%= form_for [@question, @comment], remote: true do |t| %>
       <%= t.label :body, 'Comment' %>
@@ -20,6 +18,9 @@
       <%= t.submit 'Submit Comment' %>
     <% end %>
   </div>
+</div>
+
+<div class="question-comments col-md-12">
   <div class='display-comments'>
     <ul class='comment-list'>
       <% @question.comments.each do |comment| %>
@@ -27,11 +28,7 @@
       <% end %>
     </ul>
   </div>
-
 </div>
-
-
-
 
 <h4 class='col-md-12'>Answer this question:</h4>
 <div class='answer-question col-md-8'>
@@ -44,11 +41,12 @@
     </div>
   <% end %>
 </div>
-<h2 class='col-md-12'><%= pluralize(@question.answers.count,  'answer')%></h2>
+<h2 class='col-md-12'>
+   <%= pluralize(@question.answers.count,  'answer')%>
+</h2>
 <div class='answers col-md-8'>
   <ul class='answer-list'>
   <% @question.answers.each do |answer| %>
-
     <%= render '/shared/answers', :answer => answer %>
   <% end %>
 </ul>
