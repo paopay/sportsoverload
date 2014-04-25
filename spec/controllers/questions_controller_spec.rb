@@ -45,8 +45,11 @@ describe QuestionsController do
   end
 
   context '#create' do
+
+    let!(:user) { FactoryGirl.create :user }
     let!(:a_question) {FactoryGirl.attributes_for :question}
     it 'creates a new question with valid params' do
+    SessionsController.stub(:create).and_return(session[:user_id] = user.id)
       expect{
         post :create, :question => a_question
       }.to change {Question.count}.by(1)
