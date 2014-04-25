@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'create a question' do
   let!(:a_question) {FactoryGirl.attributes_for :question}
+    let!(:user) { FactoryGirl.create :user }
     # before(:each) do
     #   user = FactoryGirl.create(:user)
     #   user.stub(:name).and_return('bob')
