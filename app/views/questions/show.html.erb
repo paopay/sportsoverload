@@ -2,7 +2,11 @@
   <div class="question-title">
   <%= @question.title %>
   </div>
+  <span class="score">
+    <%= link_to "Boss", vote_path, {method: :put, vote_type: true, question: { id: @question, type: @question.class }}%>
+    0
+    <%= link_to "Not Boss", vote_path, {method: :put, vote_type: false, question: { id: @question, type: @question.class }}%></span>
   <div class="question-body">
-  <%= @question.body %>
+  <%= @question.body%>
   </div>
 </div>

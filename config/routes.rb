@@ -4,5 +4,6 @@ SportsOverload::Application.routes.draw do
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:show, :create, :new]
+  resources :votes, :only => [:update]
   resources :questions
 end
