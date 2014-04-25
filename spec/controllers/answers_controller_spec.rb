@@ -12,5 +12,12 @@ describe AnswersController do
 
 
     end
+
+    it "doesn't create a new answer with invalid params" do
+      expect{
+        post :create, :question_id => question.id, :answer => {body: nil}
+      }.to_not change {Answer.count}
+
+    end
   end
 end

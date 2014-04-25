@@ -8,7 +8,7 @@ $(document).ready(function(){
 
   console.log(data)
 
-    $('div.answers').append(data)
+    $('ul.answer-list').append(data)
   })
 });
 
