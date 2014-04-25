@@ -7,4 +7,13 @@ feature "log in" do
     click_on "Log In"
     expect(page).to have_content("Username")
   end
+
+  scenario "able to log in with valid params" do
+    visit root_path
+    click_on "Log In"
+    fill_in 'Username', :with => user_attr[:username]
+    fill_in 'Password', :with => user_attr[:password]
+    click_on "Sign In"
+    expect(page).to have_content("Log Out")
+  end
 end
