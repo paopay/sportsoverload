@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-feature 'create a question', :js => true do
+feature 'create a question' do
   let!(:a_question) {FactoryGirl.attributes_for :question}
   scenario 'create a valid question' do
-    visit questions_path
+    visit root_path
     click_on 'ask new question'
     within ('#new_question') do
       fill_in 'Title', with: a_question[:title]

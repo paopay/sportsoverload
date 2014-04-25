@@ -1,12 +1,25 @@
 require 'spec_helper'
 
 describe QuestionsController do
+
   context "#index" do
+    let!(:question) { FactoryGirl.create :question}
+    let!(:a_question) { FactoryGirl.create :question}
     it "is successful" do
       get :index
       expect(response).to be_success
     end
+
+    it "assigns questions to all questions" do
+      get :index
+      expect(assigns(:questions)).to eq Question.all
+    end
+    it "shows the correct number of questions" do
+      get :index
+      expect(Question.all.length).to eq(2)
+    end
   end
+
   context "#show" do
     let(:question) { FactoryGirl.create :question}
     it "is successful" do
