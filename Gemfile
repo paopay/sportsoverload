@@ -16,6 +16,7 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'bcrypt', '~> 3.1.7'
   gem 'bcrypt-ruby', '~> 3.0.0'
+  gem 'debugger'
   gem 'rspec-rails'
 end
 
@@ -26,4 +27,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'faker'
+
 end
