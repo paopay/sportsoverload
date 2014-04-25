@@ -7,3 +7,21 @@ h3.question-title-header {
   border-bottom: 1px solid #bbb;
   padding-bottom: 5px;
 }
+
+.single-answer {
+  list-style: none;
+  padding:20px 0;
+  border-bottom: 1px solid #aaa;
+}
+
+.single-answer-body {
+  font-size: 1.3em;
+}
+
+.single-answer-info {
+  float: right;
+}
+
+.user-name {
+  font-weight: bold;
+}

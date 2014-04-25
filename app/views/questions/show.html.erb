@@ -5,10 +5,11 @@
   <div class="question-body">
 
   <%= @question.body %>
+  <div class="question-info"><%= @question.user.username %> asked <%= time_ago_in_words(@question.created_at) %> ago</div>
   </div>
 </div>
 
-<h2 class='col-md-12'>Answer this question</h2>
+<h4 class='col-md-12'>Answer this question:</h4>
 <div class='answer-question col-md-8'>
   <%= form_for [@question, @answer], remote: true  do |f| %>
     <div class="form-group">
@@ -19,7 +20,7 @@
     </div>
   <% end %>
 </div>
-<h2 class='col-md-12'>Current answers</h2>
+<h2 class='col-md-12'><%= pluralize(@question.answers.count,  'answer')%></h2>
 <div class='answers col-md-8'>
   <ul class='answer-list'>
   <% @question.answers.each do |answer| %>
