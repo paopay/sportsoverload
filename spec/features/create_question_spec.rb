@@ -3,14 +3,13 @@ require 'spec_helper'
 feature 'create a question' do
   let!(:a_question) {FactoryGirl.attributes_for :question}
     let!(:user) { FactoryGirl.create :user }
-    # before(:each) do
-    #   user = FactoryGirl.create(:user)
-    #   user.stub(:name).and_return('bob')
-    #   SessionController.stub(:class_method).and_return('something')
-    #   fake_controller = double(SessionController)
-    #   SessionController.stub(:new).and_return(fake_controller)
-    #   fake_controller.stub(:instance_method).and_return('...')
-    # end
+     before(:each) do
+    visit root_path
+    click_on "Log In"
+    fill_in 'Username', :with => user.username
+    fill_in 'Password', :with => user.password
+    click_on "Sign In"
+     end
   scenario 'create a valid question' do
     visit root_path
     click_on 'ask new question'
