@@ -16,4 +16,9 @@ FactoryGirl.define do
     user
     question
   end
+  factory :comment do
+    body {Faker::Lorem.sentence}
+    user
+  end
+
 end

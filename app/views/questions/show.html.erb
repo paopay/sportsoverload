@@ -5,8 +5,18 @@
   <div class="question-body">
 
   <%= @question.body %>
-  <div class="question-info"><%= @question.user.username %> asked <%= time_ago_in_words(@question.created_at) %> ago</div>
+  <div class="question-info"><span class="user-name"><%= @question.user.username %></span> asked <%= time_ago_in_words(@question.created_at) %> ago</div>
   </div>
+  <div class="question-comments">
+    <%= form_for [@question, @comments] do |t| %>
+      <%= t.label :body %>
+      <%= t.text_field :body %>
+      <%= t.submit 'Submit Comment' %>
+    <% end %>
+
+  </div>
+
+
 </div>
 
 <h4 class='col-md-12'>Answer this question:</h4>
