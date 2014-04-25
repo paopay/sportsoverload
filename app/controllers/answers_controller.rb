@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
     @answer.user_id = session[:user_id]
     @answer.save
 
-    render :nothing => true
+    render partial:'/shared/answers', locals: {answer: @answer}
   end
 
 end
