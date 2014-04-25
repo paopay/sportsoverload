@@ -10,7 +10,7 @@ feature "signing up" do
   end
 
   scenario "able to sign up" do
-    visit sign_up_path
+    visit new_user_path
     fill_in 'Username', :with => user_attr[:username]
     fill_in 'Email', :with => user_attr[:email]
     fill_in 'Password', :with => user_attr[:password]

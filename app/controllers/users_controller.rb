@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def sign_up
+  def new
     @user = User.new
   end
 
@@ -13,7 +13,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      render sign_up_path
+      render new_user_path
     end
   end
+
 end
