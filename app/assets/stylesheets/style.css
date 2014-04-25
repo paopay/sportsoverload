@@ -49,3 +49,8 @@ h3.question-title-header {
 .nav-pills{
   float:right;
 }
+
+
+.comment-form{
+display:none;
+}
