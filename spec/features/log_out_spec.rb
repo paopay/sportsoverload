@@ -19,4 +19,11 @@ feature "log out" do
     click_on "Log Out"
     expect(page).to have_content("Log In")
   end
+
+  scenario "not able to view other users' profile page" do
+    click_on "Log Out"
+    visit user_path(user)
+    expect(page).to_not have_content user.username
+  end
 end
+
