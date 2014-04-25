@@ -1,0 +1,6 @@
+<li class='single-answer'>
+  <div class="single-answer-body">
+    <%= answer.body %>
+  </div>
+  <span class="single-answer-info"><span class='user-name'><%= answer.user.username %></span>  answered about <%= time_ago_in_words(answer.created_at) %> ago</span>
+</li>
