@@ -1,8 +1,13 @@
 <%= link_to "Sign Up", sign_up_path %>
-<% @questions.each do |question| %>
-    <%= link_to question.title, question_path(question) %>
-<% end %>
+  <% @questions.each do |question| %>
+    <div class="row">
+      <div class="col-md-4 single-question">Votes, Answers, Views</div>
+     <div class="col-md-8 single-question">
+      <%= link_to question.title, question_path(question) %>
+     </div>
+    </div>
+  <% end %>
 
 
 
-<%= link_to 'ask new question', new_question_path %>
+  <%= link_to 'ask new question', new_question_path %>
