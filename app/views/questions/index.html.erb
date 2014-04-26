@@ -5,52 +5,9 @@
   <li><a href="#votes" data-toggle="tab">Highest Votes</a></li>
   <li><a href="#trending" data-toggle="tab">Trending</a></li>
 </ul>
-  <div id="recent">
-    <ul class="homepage-questions">
-      <% @questions.each do |question| %>
-        <li>
-          <div class="row">
-              <div class="col-md-4 col-sm-4 col-xs-4 single-question"><%= question.votes.count %></div>
-             <div class="col-md-8 col-sm-8 col-xs-8 single-question">
-              <%= link_to question.title, question_path(question) %>
-              <span class="user-name"><%= question.user.username %></span> asked <%= time_ago_in_words(question.created_at) %> ago
-             </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <%= render '/shared/recent' %>
 
-  <div id='votes'>
-    <ul class="homepage-questions">
-      <% @votes.each do |question, count| %>
-        <li>
-          <div class="row">
-              <div class="col-md-4 col-sm-4 col-xs-4 single-question"><%= question.votes.count %></div>
-             <div class="col-md-8 col-sm-8 col-xs-8 single-question">
-              <%= link_to question.title, question_path(question) %>
-              <span class="user-name"><%= question.user.username %></span> asked <%= time_ago_in_words(question.created_at) %> ago
-             </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div id='trending'>
-    <ul class="homepage-questions">
-      <% @trending.each do |question, vote_time| %>
-        <li>
-          <div class="row">
-              <div class="col-md-4 col-sm-4 col-xs-4 single-question"><%= question.votes.count %></div>
-             <div class="col-md-8 col-sm-8 col-xs-8 single-question">
-              <%= link_to question.title, question_path(question) %>
-              <span class="user-name"><%= question.user.username %></span> voted on <%= time_ago_in_words(vote_time) %> ago
-             </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <%= render '/shared/votes' %>
+  <%= render '/shared/trending' %>
 
 
