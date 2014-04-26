@@ -1,6 +1,6 @@
 .single-question {
   /*border-top: 1px solid #aaa;*/
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
 }
 h1 {
   display: inline;
@@ -14,11 +14,11 @@ h3.question-title-header {
 .single-answer {
   list-style: none;
   padding:20px 0;
-  border-bottom: 1px solid #aaa;
+  border-top: 1px solid #aaa;
 }
 
 .single-answer-body {
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 .single-answer-info, .question-info {
@@ -37,12 +37,13 @@ h3.question-title-header {
 }
 
 .question {
-  padding-bottom: 50px;
-  background-color: #efefef;
+  padding-bottom: 10px;
+  /*background-color: #efefef;*/
 }
 
 .header{
-  background-color:#efefef;
+  /*background-color:#efefef;*/
+  border-bottom: 2px solid black;
   padding-bottom: 0px;
   margin-bottom: 20px;
 }
@@ -66,4 +67,28 @@ textarea.form-control{
 }
 .comment-list-answer, .comment-list {
   list-style: none;
+}
+
+.answer-question {
+  display: none;
+}
+
+.error {
+  color: red;
+}
+.display-answer-comments, .comment-list {
+  background-color: #FAFAD2;
+}
+.single-comment {
+  border-bottom: 1px solid #ededed;
+}
+
+.homepage-questions {
+  list-style: none;
+}
+ul.homepage-questions li {
+  padding: 5px;
+}
+ul.homepage-questions li:nth-child(2n+1){
+  background-color: #FAFAD2;
 }
