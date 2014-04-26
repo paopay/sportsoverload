@@ -20,15 +20,16 @@
     <%= @question.body%>
 
   </div>
-
+  <div class='clearfix'></div>
   <div class="question-info">
     <span class="user-name"><%= @question.user.username %></span> asked <%= time_ago_in_words(@question.created_at) %> ago
+
+    <% if current_user %>
+      <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
+    <% else %>
+      <p>You must be <%= link_to 'logged in', new_session_path %> to comment</p>
+    <% end %>
   </div>
-  <% if current_user %>
-    <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
-  <% else %>
-    <p>You must be <%= link_to 'logged in', new_session_path %> to comment</p>
-  <% end %>
   <div class='comment-form-question'>
     <%= form_for [@question, @comment], remote: true, :html => {:class => 'question-comment-form' } do |t| %>
       <%= t.label :body, 'Comment' %>

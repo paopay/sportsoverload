@@ -92,3 +92,24 @@ ul.homepage-questions li {
 ul.homepage-questions li:nth-child(2n+1){
   background-color: #FAFAD2;
 }
+
+.vote-box {
+  float: left;
+  padding-right: 10px;
+}
+.vote-box .score {
+  text-align: center;
+  font-size: 1.3em;
+}
+div.vote-box button {
+  width: 85px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.question-comments {
+  margin-top: 15px;
+}
+
