@@ -18,18 +18,17 @@
       <%= t.submit 'Submit Comment' %>
     <% end %>
   </div>
-    <div class="question-comments col-md-12">
-      <div class='display-comments'>
-        <ul class='comment-list'>
-          <% @question.comments.each do |comment| %>
-            <%= render '/shared/comments', :comment => comment %>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+</div>
+
+<div class="question-comments col-md-12">
+  <div class='display-comments'>
+    <ul class='comment-list'>
+      <% @question.comments.each do |comment| %>
+        <%= render '/shared/comments', :comment => comment %>
+      <% end %>
+    </ul>
   </div>
-
-
+</div>
 
 <h4 class='col-md-12'>Answer this question:</h4>
 <div class='answer-question col-md-8'>

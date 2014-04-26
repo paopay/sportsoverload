@@ -20,8 +20,6 @@ feature 'add a comment' do
     click_on 'Submit Comment'
     expect(page).to have_content(comment[:body])
 
-
-
   end
 
   scenario "as a signed in user, add a comment to an answer", js: true do
