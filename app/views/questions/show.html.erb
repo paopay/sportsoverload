@@ -6,7 +6,7 @@
     <%= form_tag({ controller: "votes", action: "update", vote_type: true, voteable: { id: @question, type: @question.class }}, method: "put") do -%>
       <%= button_tag "Boss" %>
     <% end -%>
-      <span class="score">0</span>
+      <span class="score"><%= @question.vote_count %></span>
     <%= form_tag({ controller: "votes", action: "update", vote_type: false, voteable: { id: @question, type: @question.class }}, method: "put") do -%>
       <%= button_tag "Not Boss" %>
     <% end -%>
