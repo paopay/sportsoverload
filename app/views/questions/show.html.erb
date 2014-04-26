@@ -2,10 +2,17 @@
   <div class="question-title">
   <%= @question.title %>
   </div>
-  <span class="score">
-    <%= link_to "Boss", vote_path, {method: :put, vote_type: true, question: { id: @question, type: @question.class }}%>
-    0
-    <%= link_to "Not Boss", vote_path, {method: :put, vote_type: false, question: { id: @question, type: @question.class }}%></span>
+
+
+
+    <%= form_tag({ controller: "votes", action: "update", vote_type: true, voteable: { id: @question, type: @question.class }}, method: "put") do -%>
+      <%= button_tag "Boss" %>
+    <% end -%>
+      <span class="score">0</span>
+    <%= form_tag({ controller: "votes", action: "update", vote_type: false, voteable: { id: @question, type: @question.class }}, method: "put") do -%>
+      <%= button_tag "Not Boss" %>
+    <% end -%>
+
   <div class="question-body">
   <%= @question.body%>
   </div>

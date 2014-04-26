@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :vote do
-    voteable_type { ['Question'].sample}
+    voteable_type { nil }
     voteable_id { nil }
     vote_type { nil }
 

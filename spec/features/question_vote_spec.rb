@@ -11,7 +11,7 @@ feature "Voting on question" do
   # end
   scenario "a user can vote on questions" do
     expect(page).to have_content('Boss')
-    expect(page).to have_content('Not-Boss')
+    expect(page).to have_content('Not Boss')
   end
 
   scenario "a user can vote a question up" do
