@@ -12,7 +12,7 @@
       </div>
       <%= form_tag({ controller: "votes", action: "update", vote_type: false, voteable: { id: @question, type: @question.class }}, method: "put", remote: true) do -%>
         <%= button_tag "Not Boss", :class => 'btn btn-danger' %>
-      <% end -%>
+      <% end %>
     </div>
   <% end %>
 
@@ -25,7 +25,7 @@
     <span class="user-name"><%= @question.user.username %></span> asked <%= time_ago_in_words(@question.created_at) %> ago
 
     <% if current_user %>
-      <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
+      <%= link_to 'comment on question', questions_path, :class => 'add-comment' %>
     <% else %>
       <p>You must be <%= link_to 'logged in', new_session_path %> to comment</p>
     <% end %>
@@ -67,7 +67,7 @@
   <% end %>
 </div>
 <h2 class='col-md-12'>
-   <%= pluralize(@question.answers.count,  'answer')%>
+    <span id='answer-count' data-count="<%= @question.answers.count %>"><%= @question.answers.count %></span> <%= pluralize_without_count(@question.answers.count, 'Answer',text = nil) %>
 </h2>
 <div class='answers col-md-8'>
   <ul class='answer-list'>
