@@ -67,3 +67,7 @@ textarea.form-control{
 .comment-list-answer, .comment-list {
   list-style: none;
 }
+
+.answer-question {
+  display: none;
+}
