@@ -22,7 +22,11 @@
   <div class="question-info">
     <span class="user-name"><%= @question.user.username %></span> asked <%= time_ago_in_words(@question.created_at) %> ago
   </div>
-  <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
+  <% if current_user %>
+    <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
+  <% else %>
+    <p>You must be <%= link_to 'logged in', new_session_path %> to comment</p>
+  <% end %>
   <div class='comment-form-question'>
     <%= form_for [@question, @comment], remote: true, :html => {:class => 'question-comment-form' } do |t| %>
       <%= t.label :body, 'Comment' %>
@@ -43,7 +47,11 @@
 </div>
 
 <!-- <h4 class='col-md-12'>Answer this question:</h4> -->
-<%= link_to 'Answer this Question', root_path, remote: true, :class => 'show-answer-form' %>
+<% if current_user %>
+  <%= link_to 'Answer this Question', root_path, remote: true, :class => 'show-answer-form' %>
+<% else %>
+  <p>You must be <%= link_to 'logged in', new_session_path %> to answer</p>
+<% end %>
 <div class='answer-question col-md-8'>
   <%= form_for [@question, @answer], remote: true,:cols => "30", :rows => "1"  do |f| %>
     <div class="form-group">
@@ -61,8 +69,11 @@
   <ul class='answer-list'>
   <% @question.answers.each do |answer| %>
     <%= render '/shared/answers', :answer => answer %>
-    <%= link_to 'Comment on this', root_path, remote: true, :class => 'show-comment-form', :data => {id: answer.id } %>
-
+    <% if current_user %>
+      <%= link_to 'Comment on this', root_path, remote: true, :class => 'show-comment-form', :data => {id: answer.id } %>
+    <% else %>
+      <p>You must be <%= link_to 'logged in', new_session_path %> to comment</p>
+    <% end %>
     <div class='comment-form' id="answer<%= answer.id %>">
       <%= form_for [answer, @comment], remote: true, :html => {'data-id' => answer.id, :class => 'answer-comment-form' } do |t| %>
         <%= t.label :body, 'Comment Answer' %>
