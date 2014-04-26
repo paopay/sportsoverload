@@ -18,4 +18,16 @@ FactoryGirl.define do
     vote_type { nil }
 
   end
+
+  factory :answer do
+    body {Faker::Lorem.sentence}
+    user
+    question
+  end
+  factory :comment do
+    body {Faker::Lorem.sentence}
+    user
+    question
+  end
+
 end

@@ -1,9 +1,7 @@
-<div class='question col-md-8'>
+<div class='question col-md-12'>
   <div class="question-title">
-  <%= @question.title %>
+    <h3 class="question-title-header"><%= @question.title %><h3>
   </div>
-
-
 
     <%= form_tag({ controller: "votes", action: "update", vote_type: true, voteable: { id: @question, type: @question.class }}, method: "put") do -%>
       <%= button_tag "Boss" %>
@@ -14,6 +12,51 @@
     <% end -%>
 
   <div class="question-body">
-  <%= @question.body%>
+    <%= @question.body%>
+
   </div>
+
+  <div class="question-info">
+    <span class="user-name"><%= @question.user.username %></span> asked <%= time_ago_in_words(@question.created_at) %> ago
+  </div>
+  <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
+  <div class='comment-form'>
+    <%= form_for [@question, @comment], remote: true do |t| %>
+      <%= t.label :body, 'Comment' %>
+      <%= t.text_field :body %>
+      <%= t.submit 'Submit Comment' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="question-comments col-md-12">
+  <div class='display-comments'>
+    <ul class='comment-list'>
+      <% @question.comments.each do |comment| %>
+        <%= render '/shared/comments', :comment => comment %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<h4 class='col-md-12'>Answer this question:</h4>
+<div class='answer-question col-md-8'>
+  <%= form_for [@question, @answer], remote: true  do |f| %>
+    <div class="form-group">
+      <%= f.label :body, 'answer' %>
+      <%= f.text_area :body, :class => 'form-control' %>
+      <%= f.submit 'submit' %>
+
+    </div>
+  <% end %>
+</div>
+<h2 class='col-md-12'>
+   <%= pluralize(@question.answers.count,  'answer')%>
+</h2>
+<div class='answers col-md-8'>
+  <ul class='answer-list'>
+  <% @question.answers.each do |answer| %>
+    <%= render '/shared/answers', :answer => answer %>
+  <% end %>
+</ul>
 </div>
