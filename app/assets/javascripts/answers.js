@@ -3,7 +3,10 @@ $(document).ready(function(){
     $('ul.answer-list').prepend(data);
     $('div.answer-question').toggle();
     $('textarea.form-control').val('');
-    $('div#answer-errors').html('')
+    $('div#answer-errors').html('');
+    var count = $('span#answer-count').data('count')
+    $('span#answer-count').html(count + 1)
+
 
   })
   $('form#new_answer').on("ajax:error", function(e, xhr, status, error){

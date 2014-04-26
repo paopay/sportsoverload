@@ -12,7 +12,7 @@ feature 'create a question' do
      end
   scenario 'create a valid question' do
     visit root_path
-    click_on 'ask new question'
+    click_on 'Ask Question'
     within ('#new_question') do
       fill_in 'Title', with: a_question[:title]
       fill_in 'Body', with: a_question[:body]
