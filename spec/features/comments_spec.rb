@@ -2,15 +2,15 @@ require 'spec_helper'
 
 feature 'add a comment' do
   let!(:question) { FactoryGirl.create(:question) }
-  let!(:user) { FactoryGirl.create :user }
+  # let!(:user) { FactoryGirl.create :user }
   let!(:answer) {FactoryGirl.create :answer}
   let!(:comment) {FactoryGirl.attributes_for :comment}
      before(:each) do
 
     visit root_path
     click_on "Log In"
-    fill_in 'Username', :with => user.username
-    fill_in 'Password', :with => user.password
+    fill_in 'Username', :with => answer.user.username
+    fill_in 'Password', :with => answer.user.password
     click_on "Sign In"
      end
   scenario 'as a signed in user to a question with valid information' do
