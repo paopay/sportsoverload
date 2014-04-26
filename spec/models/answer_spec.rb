@@ -11,7 +11,7 @@ describe Answer do
   end
 
   context "vote_count" do
-    let!(:answer) { FacotryGirl.create :answer }
+    let!(:answer) { FactoryGirl.create :answer }
     it "should get the difference between upvotes and downvotes" do
       10.times do
         answer.votes << Vote.create(
