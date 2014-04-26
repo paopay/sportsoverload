@@ -8,16 +8,24 @@ class CommentsController < ApplicationController
       @comment.commentable_id = @question.id
       @comment.commentable_type = 'Question'
       @comment.user_id = session[:user_id]
-      @comment.save
-      render partial:'/shared/comments', locals: {comment: @comment}
+      if @comment.save
+        render partial:'/shared/comments', locals: {comment: @comment}
+      else
+        @errors = 'Comment cannot be blank'
+      render partial: '/shared/errors', locals: {errors: @errors}, :status => :unprocessable_entity
+      end
     else
       @answer = Answer.find(params[:answer_id])
       @comment = Comment.new(params[:comment])
       @comment.commentable_id = @answer.id
       @comment.commentable_type = 'Answer'
       @comment.user_id = session[:user_id]
-      @comment.save
-      render partial:'/shared/comments', locals: {comment: @comment}
+      if @comment.save
+        render partial:'/shared/comments', locals: {comment: @comment}
+      else
+        @errors = 'Comment cannot be blank'
+        render partial: '/shared/errors', locals: {errors: @errors}, :status => :unprocessable_entity
+      end
     end
   end
 

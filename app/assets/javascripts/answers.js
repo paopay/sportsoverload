@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('ul.answer-list').prepend(data);
     $('div.answer-question').toggle();
     $('textarea.form-control').val('');
+    $('div#answer-errors').html('')
 
   })
   $('form#new_answer').on("ajax:error", function(e, xhr, status, error){
