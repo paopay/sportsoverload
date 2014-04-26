@@ -4,13 +4,13 @@
   </div>
   <div class="vote-box">
     <%= form_tag({ controller: "votes", action: "update", vote_type: true, voteable: { id: @question, type: @question.class }}, method: "put", remote: true) do -%>
-      <%= button_tag "Boss" %>
+      <%= button_tag "Boss", :class => 'btn btn-success' %>
     <% end -%>
     <div class="score">
       <span><%= @question.vote_count %></span>
     </div>
     <%= form_tag({ controller: "votes", action: "update", vote_type: false, voteable: { id: @question, type: @question.class }}, method: "put", remote: true) do -%>
-      <%= button_tag "Not Boss" %>
+      <%= button_tag "Not Boss", :class => 'btn btn-danger' %>
     <% end -%>
   </div>
 
@@ -31,7 +31,7 @@
     <%= form_for [@question, @comment], remote: true, :html => {:class => 'question-comment-form' } do |t| %>
       <%= t.label :body, 'Comment' %>
       <%= t.text_field :body %>
-      <%= t.submit 'Submit Comment' %>
+      <%= t.button 'Submit Comment', :class => 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
@@ -52,12 +52,13 @@
 <% else %>
   <p>You must be <%= link_to 'logged in', new_session_path %> to answer</p>
 <% end %>
+<div id="answer-errors"></div>
 <div class='answer-question col-md-8'>
   <%= form_for [@question, @answer], remote: true,:cols => "30", :rows => "1"  do |f| %>
     <div class="form-group">
       <%= f.label :body, 'answer' %>
       <%= f.text_area :body, :class => 'form-control' %>
-      <%= f.submit 'submit' %>
+      <%= f.button 'submit', :class => 'btn btn-primary' %>
 
     </div>
   <% end %>
@@ -78,7 +79,7 @@
       <%= form_for [answer, @comment], remote: true, :html => {'data-id' => answer.id, :class => 'answer-comment-form' } do |t| %>
         <%= t.label :body, 'Comment Answer' %>
         <%= t.text_field :body %>
-        <%= t.submit 'Submit Answer Comment' %>
+        <%= t.button 'Submit Answer Comment', :class => 'btn btn-primary' %>
       <% end %>
     </div>
 

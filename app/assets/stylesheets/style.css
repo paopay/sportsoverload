@@ -71,3 +71,7 @@ textarea.form-control{
 .answer-question {
   display: none;
 }
+
+.error {
+  color: red;
+}
