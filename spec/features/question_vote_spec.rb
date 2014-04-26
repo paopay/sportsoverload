@@ -16,6 +16,6 @@ feature "Voting on question" do
 
   scenario "a user can vote a question up" do
     click_on "Boss"
-    expect(find(".score")).to have_content(question.vote_count)
+    expect(page).to have_content(question.vote_count)
   end
 end
