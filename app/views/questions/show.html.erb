@@ -2,9 +2,21 @@
   <div class="question-title">
     <h3 class="question-title-header"><%= @question.title %><h3>
   </div>
+  <div class="vote-box">
+    <%= form_tag({ controller: "votes", action: "update", vote_type: true, voteable: { id: @question, type: @question.class }}, method: "put", remote: true) do -%>
+      <%= button_tag "Boss" %>
+    <% end -%>
+    <div class="score">
+      <span><%= @question.vote_count %></span>
+    </div>
+    <%= form_tag({ controller: "votes", action: "update", vote_type: false, voteable: { id: @question, type: @question.class }}, method: "put", remote: true) do -%>
+      <%= button_tag "Not Boss" %>
+    <% end -%>
+  </div>
 
   <div class="question-body">
-    <%= @question.body %>
+    <%= @question.body%>
+
   </div>
 
   <div class="question-info">

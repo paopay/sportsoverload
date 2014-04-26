@@ -11,6 +11,14 @@ FactoryGirl.define do
     body  {Faker::Lorem.paragraph}
     user
   end
+
+  factory :vote do
+    voteable_type { nil }
+    voteable_id { nil }
+    vote_type { nil }
+
+  end
+
   factory :answer do
     body {Faker::Lorem.sentence}
     user
