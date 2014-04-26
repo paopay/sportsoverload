@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('form.question-comment-form').on("ajax:success", function(e,data){
-    // console.log('success')
+    console.log(data)
     $('ul.comment-list').prepend(data)
   })
 
@@ -16,8 +16,11 @@ $(document).ready(function(){
 
   $('form.answer-comment-form').on('ajax:success', function(e,data){
     var answerId = $(this).data('id')
+    console.log(data)
     $('ul#answer'+ answerId).prepend(data)
   })
-
+  $('form').on('ajax:error', function(e,data){
+    console.log(data)
+  })
 
 });

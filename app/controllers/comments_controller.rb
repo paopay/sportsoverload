@@ -18,7 +18,6 @@ class CommentsController < ApplicationController
       @comment.user_id = session[:user_id]
       @comment.save
       render partial:'/shared/comments', locals: {comment: @comment}
-
     end
   end
 
