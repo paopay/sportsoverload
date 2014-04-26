@@ -11,4 +11,8 @@ class Question < ActiveRecord::Base
     down_votes = self.votes.select {|vote| vote.vote_type == false}
     up_votes.length - down_votes.length
   end
+
+  def order_answers_by_latest
+    self.answers.order('created_at desc')
+  end
 end
