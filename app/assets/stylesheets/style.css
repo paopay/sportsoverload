@@ -51,6 +51,19 @@ h3.question-title-header {
 }
 
 
-.comment-form{
+.comment-form, .comment-form-question{
 display:none;
+}
+
+textarea#new_answer! {
+  width: 100px;
+  height: 100px;
+}
+
+textarea.form-control{
+  height:100px;
+  margin-bottom: 30px;
+}
+.comment-list-answer, .comment-list {
+  list-style: none;
 }

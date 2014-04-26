@@ -4,4 +4,8 @@ class Comment < ActiveRecord::Base
   validates_presence_of :body
   attr_accessible :body
 
+  def most_recent_comments_first(question)
+    question.comments.order('created_at asc')
+  end
+
 end
