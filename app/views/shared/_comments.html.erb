@@ -1,6 +1,7 @@
 <li class='single-comment'>
   <div class="single-comment-body">
     <%= comment.body %>
+    <span class="single-comment-info"><span class='user-name'><%= comment.user.username %></span>  commented about <%= time_ago_in_words(comment.created_at) %> ago</span>
   </div>
-  <span class="single-comment-info"><span class='user-name'><%= comment.user.username %></span>  commented about <%= time_ago_in_words(comment.created_at) %> ago</span>
+
 </li>
