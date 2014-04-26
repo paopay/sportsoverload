@@ -1,9 +1,9 @@
 $(document).ready(function(){
-  $('.vote-box form').on("ajax:success", function(e,data){
+  $('.question-vote-box form').on("ajax:success", function(e,data){
     console.log('success')
     e.preventDefault()
     thing = data
-    $('.score').html(data)
+    $('.question-score').html(data)
   })
   // $('a.add-comment').on('click', function(e){
   //   e.preventDefault()
