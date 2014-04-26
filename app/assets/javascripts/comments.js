@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   $('form.answer-comment-form').on('ajax:success', function(e,data){
     var answerId = $(this).data('id')
-    $('ul#answer'+ answerId).prepend(data)
+    $('ul#answer'+ answerId).append(data)
     $('div#answer' +  answerId).toggle()
     $('input#comment_body').val('')
   })
