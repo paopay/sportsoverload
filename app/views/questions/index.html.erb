@@ -23,7 +23,7 @@
 
   <div id='votes'>
     <ul class="homepage-questions">
-      <% @votes.each do |count, question| %>
+      <% @votes.each do |question, count| %>
         <li>
           <div class="row">
               <div class="col-md-4 col-sm-4 col-xs-4 single-question"><%= question.votes.count %></div>

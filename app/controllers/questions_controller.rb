@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.order('created_at desc')
-    @votes = Question.questions_with_most_votes[0..15]
+    @votes = Question.questions_with_most_votes
     @trending = Question.question_with_recent_votes
     p @trending
   end

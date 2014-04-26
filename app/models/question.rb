@@ -20,9 +20,9 @@ class Question < ActiveRecord::Base
     questions = Question.all
     question_votes = {}
     questions.each do |question|
-        question_votes[question.votes.count] = question
+        question_votes[question] = [question.votes.count]
     end
-    question_votes = question_votes.sort_by {|k,v| k }.reverse
+    question_votes = question_votes.sort_by {|k,v| v }.reverse
   end
 
    def self.question_with_recent_votes

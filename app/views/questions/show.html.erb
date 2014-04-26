@@ -25,7 +25,7 @@
     <span class="user-name"><%= @question.user.username %></span> asked <%= time_ago_in_words(@question.created_at) %> ago
 
     <% if current_user %>
-      <%= link_to 'Comment', questions_path, :class => 'add-comment' %>
+      <%= link_to 'comment on question', questions_path, :class => 'add-comment' %>
     <% else %>
       <p>You must be <%= link_to 'logged in', new_session_path %> to comment</p>
     <% end %>
