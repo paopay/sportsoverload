@@ -1,7 +1,9 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
+    @questions = Question.order('created_at desc')
+    @votes = Question.questions_with_most_votes
+    @trending = Question.question_with_recent_votes
   end
 
   def new
@@ -21,7 +23,6 @@ class QuestionsController < ApplicationController
   def show
     @comment = Comment.new
     @answer = Answer.new
-
     @question = Question.find params[:id]
     @answers = @question.order_answers_by_latest
   end

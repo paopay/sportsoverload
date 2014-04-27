@@ -2,6 +2,9 @@
   /*border-top: 1px solid #aaa;*/
   /*border-bottom: 1px solid #ddd;*/
 }
+ul {
+  list-style: none;
+}
 h1 {
   display: inline;
 }
@@ -89,7 +92,7 @@ textarea.form-control{
 ul.homepage-questions li {
   padding: 5px;
 }
-ul.homepage-questions li:nth-child(2n+1){
+ul.homepage-questions li:nth-child(2n){
   background-color: #FAFAD2;
 }
 
@@ -113,3 +116,6 @@ div.question-vote-box button {
   margin-top: 15px;
 }
 
+#votes, #trending{
+  display:none;
+}

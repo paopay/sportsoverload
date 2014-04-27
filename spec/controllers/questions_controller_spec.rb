@@ -12,7 +12,7 @@ describe QuestionsController do
 
     it "assigns questions to all questions" do
       get :index
-      expect(assigns(:questions)).to eq Question.all
+      expect(assigns(:questions)).to eq Question.order('created_at desc')
     end
     it "shows the correct number of questions" do
       get :index
